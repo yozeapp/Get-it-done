@@ -1,1 +1,29 @@
-// Placeholder for package.json
+{
+  "name": "get-it-done",
+  "private": true,
+  "packageManager": "pnpm@9.6.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "start": "pnpm -r start",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:generate": "pnpm --filter @getitdone/db prisma generate",
+    "db:migrate": "pnpm --filter @getitdone/db prisma migrate deploy",
+    "db:reset": "pnpm --filter @getitdone/db prisma migrate reset --force",
+    "db:seed": "pnpm --filter @getitdone/db tsx packages/db/seed.ts",
+    "test": "vitest --run",
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsx": "^4.15.7",
+    "typescript": "^5.5.4",
+    "vitest": "^1.6.0",
+    "playwright": "^1.45.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
