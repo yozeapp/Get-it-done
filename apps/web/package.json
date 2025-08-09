@@ -1,1 +1,28 @@
-// Placeholder for apps/web/package.json
+{
+  "name": "@getitdone/web",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "next-auth": "^5.0.0",
+    "@getitdone/db": "workspace:*",
+    "@getitdone/core": "workspace:*",
+    "zod": "^3.23.8",
+    "@prisma/client": "^5.17.0",
+    "luxon": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/node": "^20.11.30",
+    "typescript": "^5.5.4"
+  }
+}
