@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: Get IT Done API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/tasks:
+    get:
+      summary: List tasks
+      responses:
+        '200': { description: OK }
+    post:
+      summary: Create task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                notes: { type: string }
+      responses:
+        '201': { description: Created }
+  /api/tasks/{id}:
+    get: { summary: Get task, responses: { '200': { description: OK }, '404': { description: Not found } } }
+    patch: { summary: Update task, responses: { '200': { description: OK } } }
+    delete: { summary: Archive task, responses: { '204': { description: No Content } } }
+  /api/tasks/{id}/reminder-rules:
+    post: { summary: Create reminder rule, responses: { '201': { description: Created } } }
+  /api/reminder-rules/{id}/preview:
+    post: { summary: Preview next 10 run times, responses: { '200': { description: OK } } }
+  /api/deliveries:
+    get: { summary: List delivery logs, responses: { '200': { description: OK } } }
