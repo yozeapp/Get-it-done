@@ -1,1 +1,17 @@
-// Placeholder for packages/db/package.json
+{
+  "name": "@getitdone/db",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev --name init",
+    "deploy": "prisma migrate deploy"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.17.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "prisma": "^5.17.0"
+  }
+}
