@@ -1,0 +1,20 @@
+{
+  "name": "@getitdone/worker",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "bullmq": "^5.7.4",
+    "ioredis": "^5.4.1",
+    "node-cron": "^3.0.3",
+    "luxon": "^3.5.0",
+    "@getitdone/db": "workspace:*",
+    "@getitdone/core": "workspace:*",
+    "@getitdone/notify": "workspace:*"
+  },
+  "devDependencies": { "tsx": "^4.15.7", "typescript": "^5.5.4" }
+}
