@@ -21,6 +21,27 @@ Task & Reminder app (Next.js + Prisma + BullMQ).
 - Prisma/Postgres for data
 - BullMQ + Redis workers for reminder delivery
 - node-cron scans for due occurrences every minute
+- flowchart LR
+  subgraph Web[Next.js App]
+    API[/API Routes/]
+    UI[Tasks/Settings]
+  end
+  subgraph Worker[BullMQ Workers]
+    CRON[cron scanner]
+    MAIL[mail worker]
+    SMS[sms worker]
+  end
+  DB[(PostgreSQL)]
+  Q[(Redis)]
+
+  UI --> API
+  API <--> DB
+  CRON --> DB
+  CRON --> Q
+  MAIL --> Q
+  SMS --> Q
+  MAIL --> DB
+  SMS --> DB
 
 ## Notes
 - All times stored in UTC; user timezone used for quiet hours
